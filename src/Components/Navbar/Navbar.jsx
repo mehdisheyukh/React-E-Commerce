@@ -14,7 +14,7 @@ export const Navbar = () => {
     <div className='navbar'>
         <div className="nav-logo">
             <img src={logo} alt="" />
-            <p>SHOPPER New 2 test</p>
+            <p>SHOPPER Update</p>
         </div>
         <ul className="nav-menu">
             <li onClick={ ()=> {setMenu("shop")}}><Link style={{textDecoration: 'none'}} to='/'>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
