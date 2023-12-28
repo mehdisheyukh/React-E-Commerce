@@ -4,8 +4,22 @@ import { ShopContext } from '../Context/ShopContext'
 import dropdown_icon from '../Components/Assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
 
-const ShopCategory = (props) => {
-  const {all_product} = useContext(ShopContext);
+interface ShopCategoryProps {
+  banner: string; 
+  category: string;
+}
+
+const ShopCategory:React.FC<ShopCategoryProps> = (props) => {
+
+  const contextValue = useContext(ShopContext);
+
+  const all_product = contextValue?.all_product
+
+    if (!all_product) {
+      return <p>Loading...</p>; // or handle the loading state as needed
+    }
+
+    const filteredItems = all_product.filter((item) => props.category === item.category);
 
   return (
     <div className='shop-category'>
@@ -19,13 +33,16 @@ const ShopCategory = (props) => {
         </div>
       </div>
       <div className="shopcategory-products">
-        {all_product.map((item , i)=> {
-          if (props.category === item.category) {
-            return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
-          } else {
-            return null;
-          }
-        })}
+      {filteredItems.map((item, i) => (
+          <Item
+            key={i}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            new_price={item.new_price}
+            old_price={item.old_price}
+          />
+        ))}
       </div>
       <div className='shopcategory-loadmore'>
           Explore More

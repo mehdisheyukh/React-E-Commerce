@@ -1,0 +1,33 @@
+// extra-small-break
+$breakpoint-xs-width:460px;
+// small-break: 
+$breakpoint-s-width: 768px;
+// mid-break
+$breakpoint-m-width:1024px;
+// large-break
+$breakpoint-l-width:1440px;
+
+
+@mixin extra-small-break {
+    @media (min-width: #{$breakpoint-xs-width}) {
+        @content;
+    }
+}
+
+@mixin small-break {
+    @media (min-width: #{$breakpoint-s-width}) {
+      @content;
+    }
+}
+
+@mixin mid-break {
+    @media (min-width: #{$breakpoint-m-width}) {
+      @content;
+    }
+}
+
+@mixin large-break {
+    @media (min-width: #{$breakpoint-l-width}) {
+        @content;
+    }
+}

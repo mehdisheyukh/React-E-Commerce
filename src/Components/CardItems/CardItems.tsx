@@ -3,8 +3,17 @@ import './CardItems.css'
 import {ShopContext} from '../../Context/ShopContext'
 import remove_icon from '../Assets/cart_cross_icon.png'
 
-const CardItems = () => {
-  const { all_product , cartItems , removeFromCart ,getTotalCartAmount } = useContext(ShopContext);
+const CardItems: React.FC = () => {
+  
+  const shopContext = useContext(ShopContext);
+
+  if (!shopContext || !shopContext.all_product || !shopContext.cartItems || !shopContext.removeFromCart || !shopContext.getTotalCartAmount) {
+    return null; // or return an appropriate loading/error component
+  }
+
+    const { all_product , cartItems , removeFromCart ,getTotalCartAmount } = shopContext;
+
+
   return (
     <div className='carditems'>
             <div className="cartitems-format-main">

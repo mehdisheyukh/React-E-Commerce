@@ -4,9 +4,30 @@ import star from '../Assets/star_icon.png'
 import star_dull_icon from '../Assets/star_dull_icon.png'
 import { ShopContext } from '../../Context/ShopContext'
 
-const ProductDisplay = (props) => {
-    const {product} = props; 
-    const {addToCart} = useContext(ShopContext);
+type ProductDisplayProps = {
+    product: {
+        id: number;
+        name: string;
+        category: string;
+        image: any;
+        new_price: number;
+        old_price: number;
+      };
+      addToCart?: (itemId: number) => void;
+};
+
+const ProductDisplay: React.FC<ProductDisplayProps> = ({product}) => {
+
+    const contextValue = useContext(ShopContext);
+
+    const addToCart = contextValue?.addToCart;
+    
+    if (!addToCart) {
+        console.error("addToCart is not available");
+        // Render an appropriate UI or return null, depending on your use case
+        return null;
+      }
+
   return (
     <div className='productdisplay'>
         <div className="productdisplay-left">
