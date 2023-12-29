@@ -1,8 +1,8 @@
-import React, { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, FC } from "react";
 import all_product from "../Components/Assets/all_product";
 
 interface ShopContextValue {
-  all_product?: {
+  all_product: {
     id: number;
     name: string;
     category: string;
@@ -10,11 +10,11 @@ interface ShopContextValue {
     new_price: number;
     old_price: number;
   }[];
-  cartItems?: Record<number, number>;
-  addToCart?: (itemId: number) => void;
-  removeFromCart?: (itemId: number) => void;
-  getTotalCartAmount?: () => number;
-  getTotalCartItems?: () => number;
+  cartItems: Record<number, number>;
+  addToCart: (itemId: number) => void;
+  removeFromCart: (itemId: number) => void;
+  getTotalCartAmount: () => number;
+  getTotalCartItems: () => number;
 }
 
 interface ShopContextProviderProps {
@@ -32,7 +32,7 @@ const getDefaultCart = (): Record<number, number> => {
   return cart;
 };
 
-const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
+const ShopContextProvider: FC<ShopContextProviderProps> = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   const addToCart = (itemId: number) => {
@@ -66,7 +66,7 @@ const ShopContextProvider: React.FC<ShopContextProviderProps> = (props) => {
     return totalItem;
   };
 
-  const contextValue: ShopContextValue = {
+  const contextValue = {
     all_product,
     cartItems,
     addToCart,

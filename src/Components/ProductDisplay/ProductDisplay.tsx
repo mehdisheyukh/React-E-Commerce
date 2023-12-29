@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { FC, useContext } from 'react'
 import './ProductDisplay.css'
 import star from '../Assets/star_icon.png'
 import star_dull_icon from '../Assets/star_dull_icon.png'
@@ -16,17 +16,11 @@ type ProductDisplayProps = {
       addToCart?: (itemId: number) => void;
 };
 
-const ProductDisplay: React.FC<ProductDisplayProps> = ({product}) => {
+const ProductDisplay: FC<ProductDisplayProps> = ({product}) => {
 
     const contextValue = useContext(ShopContext);
 
     const addToCart = contextValue?.addToCart;
-    
-    if (!addToCart) {
-        console.error("addToCart is not available");
-        // Render an appropriate UI or return null, depending on your use case
-        return null;
-      }
 
   return (
     <div className='productdisplay'>
@@ -68,7 +62,7 @@ const ProductDisplay: React.FC<ProductDisplayProps> = ({product}) => {
                     <div>XXL</div>
                 </div>
             </div>
-            <button onClick={()=> {addToCart(product.id)}}>ADD TO CART</button>
+            <button onClick={()=> { addToCart ? addToCart(product.id) : console.error("addToCart is not available") }}>ADD TO CART</button>
             <p className='productdisplay-right-category'><span>Category :</span>Women , T-Shirt, Crop Top</p>
             <p className='productdisplay-right-category'><span>Tags :</span>Modern , Latest</p>
         </div>

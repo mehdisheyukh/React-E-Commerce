@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import './CardItems.css'
 import {ShopContext} from '../../Context/ShopContext'
 import remove_icon from '../Assets/cart_cross_icon.png'
 
-const CardItems: React.FC = () => {
+const CardItems = () => {
   
   const shopContext = useContext(ShopContext);
 
