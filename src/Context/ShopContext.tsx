@@ -23,7 +23,6 @@ interface ShopContextProviderProps {
 
 export const ShopContext = createContext<ShopContextValue | null>(null);
 
-
 const getDefaultCart = (): Record<number, number> => {
   let cart: Record<number, number> = {};
   for (let index = 0; index < all_product.length + 1; index++) {
@@ -47,10 +46,12 @@ const ShopContextProvider: FC<ShopContextProviderProps> = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        const itemInfo = all_product.find((product) => product.id === Number(item));
+        const itemInfo = all_product.find(
+          (product) => product.id === Number(item)
+        );
         if (itemInfo !== undefined) {
-            totalAmount += itemInfo.new_price * cartItems[item];
-          }
+          totalAmount += itemInfo.new_price * cartItems[item];
+        }
       }
     }
     return totalAmount;
@@ -80,7 +81,6 @@ const ShopContextProvider: FC<ShopContextProviderProps> = (props) => {
       {props.children}
     </ShopContext.Provider>
   );
-
 };
 
 export default ShopContextProvider;
