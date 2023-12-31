@@ -5,6 +5,7 @@ import App from './App';
 import ShopContextProvider from './Context/ShopContext';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker'; 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,6 +21,7 @@ root.render(
 
 
 serviceWorkerRegistration.register();
+serviceWorker.register();
 reportWebVitals();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
