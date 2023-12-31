@@ -1,6 +1,7 @@
-@use "./Sass/queries.scss" as *;
-@use "./Sass/type.scss" as *;
-@use "./Sass/font-am.scss" as *;
+@import './styles/font-am.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
   /* ================ Start reset css ================ */
 

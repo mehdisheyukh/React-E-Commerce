@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
+import './index.css';
 import App from './App';
 import ShopContextProvider from './Context/ShopContext';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';

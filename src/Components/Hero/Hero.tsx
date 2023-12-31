@@ -24,6 +24,12 @@ const Hero = () => {
       <div className="hero-right">
         <img src={hero_image} alt="" />
       </div>
+
+            {/* Test tailwind */}
+            <div className="bg-blue-500 text-white p-4">
+        This is a blue box with white text and padding.
+      </div>
+      {/* Test tailwind */}
     </div>
   );
 };
