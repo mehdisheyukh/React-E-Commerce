@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './styles/font-am.css';
 import './index.css';
 import App from './App';
 import ShopContextProvider from './Context/ShopContext';
