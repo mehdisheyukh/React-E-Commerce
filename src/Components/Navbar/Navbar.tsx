@@ -16,7 +16,7 @@ export const Navbar = () => {
     <div className='flex justify-around	p-4 shadow-[0_1px_3px_-2px_black]'>
         <div className='flex items-center gap-3'>
             <img src={logo} alt="" />
-            <p className='text-[#171717] text-lg font-semibold sm:text-3xl lg:text-4xl'>SHOPPER</p>
+            <Link to="/"><p className='text-[#171717] text-lg font-semibold sm:text-3xl lg:text-4xl'>SHOPPER</p> </Link>
         </div>
         
         <ul className='hidden md:flex items-center list-none gap-12 text-[#626262] text-xl font-medium'>
