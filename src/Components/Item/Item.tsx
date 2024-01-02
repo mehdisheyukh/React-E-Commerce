@@ -16,7 +16,7 @@ const scrollToTop = (_event: React.MouseEvent<HTMLImageElement, MouseEvent>) => 
 
 const Item:FC<ItemProps> = ({ id, name, image, new_price, old_price }) => {
   return (
-    <div className="item">
+    <div className="w-28 md:w-64">
       <Link to={`/product/${id}`}>
         <img onClick={scrollToTop} src={image} alt="" />
       </Link>
