@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import './CSS/ShopCategory.css'
+import { FC, useContext } from 'react'
 import { ShopContext } from '../Context/ShopContext'
 import dropdown_icon from '../Components/Assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
@@ -9,7 +8,7 @@ interface ShopCategoryProps {
   category: string;
 }
 
-const ShopCategory:React.FC<ShopCategoryProps> = (props) => {
+const ShopCategory:FC<ShopCategoryProps> = (props) => {
 
   const contextValue = useContext(ShopContext);
 
@@ -22,17 +21,18 @@ const ShopCategory:React.FC<ShopCategoryProps> = (props) => {
     const filteredItems = all_product.filter((item) => props.category === item.category);
 
   return (
-    <div className='shop-category'>
-      <img className='shopcategory-banner' src={props.banner} alt="" />
-      <div className="shopcategory-indexStore">
+    <div className='overflow-hidden'>
+      <img className='block mx-auto my-4 w-5/6' src={props.banner} alt="" />
+
+      <div className="flex gap-[5%] md:gap-[50%] justify-center items-center">
         <p>
-          <span>Showing 1-12</span> out of 36 products
+          <span className='font-semibold'>Showing 1-12</span> out of 36 products
         </p>
-        <div className="shopcategory-sort">
+        <div className="p-1.5 pl-5 pr-8 rounded-full border border-[#888]">
           Sort by <img src={dropdown_icon} alt="" />
         </div>
       </div>
-      <div className="shopcategory-products">
+      <div className="flex flex-wrap justify-center gap-3 mt-5 md:gap-7 md:mt-10">
       {filteredItems.map((item, i) => (
           <Item
             key={i}
@@ -44,7 +44,7 @@ const ShopCategory:React.FC<ShopCategoryProps> = (props) => {
           />
         ))}
       </div>
-      <div className='shopcategory-loadmore'>
+      <div className='flex justify-center items-center mx-auto my-36 w-72 h-16 rounded-full bg-gray-300 text-gray-600 text-lg font-medium'>
           Explore More
       </div>
     </div>
